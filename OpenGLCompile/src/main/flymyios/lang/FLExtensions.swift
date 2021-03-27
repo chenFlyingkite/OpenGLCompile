@@ -14,10 +14,14 @@ extension Date {
 }
 
 extension NSEdgeInsets {
-//    public static var zero:Self {
-//        get {
-//            return .init(top: 0, left: 0, bottom: 0, right: 0)
-//        }
-//    }
-    public static let zero = NSEdgeInsets.init(top: 0, left: 0, bottom: 0, right: 0)
+    public init(_ v:CGFloat) {
+        self.init(top: v, left: v, bottom: v, right: v)
+    }
+
+    public init(x: CGFloat, y:CGFloat) {
+        self.init(top: y, left: x, bottom: y, right: x)
+    }
+
+    public static let zero = Self(0)
 }
+

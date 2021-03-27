@@ -73,4 +73,8 @@ fastlane/test_output
 iOSInjectionProject/
 
 # AppCode
-.idea/*
+.idea/**
+
+# MacOS generated files #
+######################
+#.DS_Store

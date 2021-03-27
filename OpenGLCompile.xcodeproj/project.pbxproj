@@ -22,9 +22,11 @@
 		432B9D17875ABAAFA0F9AE91 /* FLStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432B9CE4FF098083EF56F5CA /* FLStrings.swift */; };
 		432B9D78FFA481212FB0ECBA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 432B9953B5CFEF957DCD3E9E /* Assets.xcassets */; };
 		432B9E86AFBD34D9D32095E4 /* FLStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432B970096016E8741E6EF6E /* FLStructs.swift */; };
+		432B9F4BDCF83D7913806890 /* ShaderCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432B901824584F603C8A440E /* ShaderCode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		432B901824584F603C8A440E /* ShaderCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShaderCode.swift; sourceTree = "<group>"; };
 		432B90726D4CFE2F1ED75280 /* TicTac.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicTac.swift; sourceTree = "<group>"; };
 		432B91E10A01DFAC218483EA /* ShaderProgram.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShaderProgram.swift; sourceTree = "<group>"; };
 		432B9264AE44EFC2BA4E54D5 /* FLGLs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FLGLs.swift; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 			children = (
 				432B9264AE44EFC2BA4E54D5 /* FLGLs.swift */,
 				432B91E10A01DFAC218483EA /* ShaderProgram.swift */,
+				432B901824584F603C8A440E /* ShaderCode.swift */,
 			);
 			path = flgpuimage;
 			sourceTree = "<group>";
@@ -244,6 +247,7 @@
 				432B940E421B457A5DC13D01 /* FLPrimitives.swift in Sources */,
 				432B9A9E0FC80467A4487775 /* FLCollections.swift in Sources */,
 				432B90A71AD35E24B421199E /* TicTac.swift in Sources */,
+				432B9F4BDCF83D7913806890 /* ShaderCode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

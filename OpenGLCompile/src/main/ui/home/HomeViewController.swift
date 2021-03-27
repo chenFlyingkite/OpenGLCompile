@@ -28,23 +28,41 @@ class HomeViewController : NSViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         //self.view
+        setupRes()
         setupConstraints()
         Self.usingOpenGL()
         test()
     }
 
+    override func viewDidLayout() {
+        super.viewDidLayout()
+        print("panelArea = \(panelArea.frame)")
+        print(" compile = \(compile.frame)")
+        print("inputArea = \(inputArea.frame)")
+        print(" vertexTitle = \(vertexTitle.frame)")
+        print(" vertexScroll = \(vertexScroll.frame)")
+        print("  vertexSource = \(vertexSource.frame)")
+        print(" fragmentTitle = \(fragmentTitle.frame)")
+        print(" fragmentScroll = \(fragmentScroll.frame)")
+        print("  fragmentSource = \(fragmentSource.frame)")
+    }
+
     @IBAction func clickCompile(_ sender: Any) {
         let texts :[NSTextView] = [self.vertexSource, self.fragmentSource]
         let types :[ShaderType] = [.vertex, .fragment]
+        var codes :[ShaderCode] = []
         let n = texts.count
         for i in 0..<n {
             let vi = texts[i].string
             let ti = types[i]
             print("#\(i) = \(ti) -> \(vi)")
-            let cx = ShaderProgram.compileShader(vi, ti)
+            let cx = ShaderCode.compile(vi, ti)
+            codes.append(cx)
             print("cx = \(cx)")
             //ShaderProgram.compileShader(code, ti)
         }
+        let pg = ShaderProgram.from(texts[0].string, texts[1].string)
+        print("pg = \(pg)")
     }
     
     override var representedObject: Any? {
@@ -53,6 +71,13 @@ class HomeViewController : NSViewController {
     }
     }
 
+
+    private func setupRes() {
+        // https://developer.apple.com/fonts/system-fonts/#preinstalled
+        let fnt = NSFont(name: "Courier New", size: 18)
+        vertexSource.font = fnt
+        fragmentSource.font = fnt
+    }
     //-- MARK: Layouts
     private func setupConstraints() {
         let tx = [vertexTitle, fragmentTitle]
@@ -60,18 +85,13 @@ class HomeViewController : NSViewController {
         let root = self.view
         var c:[Any] = [
             FLLayouts.view(panelArea, corner: .leftTop, to: root, offsetX: 20, offsetY: 5),
-            FLLayouts.view(inputArea, corner: .leftTop, to: root, offsetX: 20, offsetY: 30),
-            //FLLayouts.view(vertexTitle, set:.height, to: 20),
+            // TODO this layout makes overlap?
+            //FLLayouts.view(inputArea, below: panelArea, offset: 10), // x
+            FLLayouts.view(inputArea, align: .top, to:root, offset: 30), // o
+
             FLLayouts.view(inputArea, sameXTo: root, offset: .init(top: 10, left: 10, bottom: 10, right: 10)),
-            //FLLayouts.view(vertexScroll, width: 300, height: 150),
-            FLLayouts.view(vertexScroll, set:.height, to: 150),
             FLLayouts.views(tx, set:.height, to: 20),
             FLLayouts.views(sx, set: .height, to: 150),
-
-            //FLLayouts.view(fragmentTitle, align:.height, to: vertexTitle),
-            //FLLayouts.view(fragmentScroll, sameWHTo: vertexScroll),
-            //FLLayouts.view(fragmentTitle, set:.height, to: 20),
-            //FLLayouts.view(fragmentScroll, set:.height, to: 150),
         ]
         FLLayouts.activate(root, forConstraint: c)
     }
@@ -112,8 +132,13 @@ class HomeViewController : NSViewController {
 
     // /Applications/AppCode.app/Contents/Resources/module_cache_12D4e.zip!/5.3.2/x86_64/macosx11.1$macos/OpenGL.GL3/OpenGL.GL3.swift
 
-        let sh = ShaderProgram.init(vertexCode: Self.vertex(), fragmentCode: "asd\n\nfff")
+        let vx = Self.vertex()
+        let fx = Self.fragment()
+        let sh = ShaderProgram.from(vx, "asd\n\nfff")
+        let xh = ShaderProgram.from(vx, fx)
         checkGLError()
+        vertexSource.string = vx
+        fragmentSource.string = fx
     }
 
 
@@ -139,9 +164,9 @@ class HomeViewController : NSViewController {
     // MARK: Shader Fragment
     class func fragment() -> String {
         var f = [
-            "precision highp float;",
-            "varying highp vec2 textureCoordinate;",
-            "varying highp vec2 textureCoordinate2;",
+            //"precision highp float;", // this is for OpenGLES
+            "varying vec2 textureCoordinate;",
+            "varying vec2 textureCoordinate2;",
 
             "uniform sampler2D inputImageTexture;",
             "uniform sampler2D inputImageTexture2;",
