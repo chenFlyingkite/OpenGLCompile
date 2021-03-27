@@ -2,10 +2,13 @@
 // Created by Eric Chen on 2021/3/21.
 //
 
-//import OpenGLES
-import OpenGL
-//import Cocoa
 import Foundation
+
+#if os(iOS)
+import OpenGLES
+#elseif os(macOS)
+import OpenGL.GL3
+#endif
 
 public class ShaderProgram : NSObject {
     private(set) var programID : GLuint = 0
@@ -85,56 +88,4 @@ public class ShaderProgram : NSObject {
         }
         glDeleteProgram(programID)
     }
-
-    //let program : GLuint
-    // TODO
-    // At some point, the Swift compiler will be able to deal with the early throw and we can convert these to lets
-    //var vertex:GLuint!
-    //var fragment:GLuint!
-
-//    public init(vertexCode:String, fragmentCode:String) {
-//
-//        print("vertex = \n\(vertexCode)")
-//        print("fragment = \n\(fragmentCode)")
-//
-//        let gls = NSOpenGLContext.current
-//        print("openGL now = \(gls), \(String(describing: gls))")
-//        let x = glGetString(GLenum(GL_VERSION))
-//        if let x = x {
-//            print("vs = \(String(cString: x))")
-//            // 2.1 INTEL-16.1.11
-//        }
-//        var y = glGetStringi(GLenum(GL_VERSION), 0)
-//        if let y = y {
-//            print("y = \(String(cString: y))")
-//        }
-////        if let value = s.cString(using: String.Encoding.utf8) {
-////            run(UnsafePointer<GLchar>(value))
-////        } else {
-////            fatalError("Could not convert this string to UTF8: \(self)")
-////        }
-//        if (1 > 0) {
-//            program = 0
-//            return
-//        }
-//
-//        program = glCreateProgram()
-//        // EAGL_MINOR_VERSION = 0, EAGL_MAJOR_VERSION = 1
-//        print("glCreateProgram at = \(program)")
-//        print("vertex = \n\(vertexCode)")
-//        print("fragment = \n\(fragmentCode)")
-//        self.vertex = ShaderProgram.compileShader(vertexCode, .vertex)
-//        checkGLError()
-//        self.fragment = ShaderProgram.compileShader(fragmentCode, .fragment)
-//        checkGLError()
-//
-////        self.vertexShader = try compileShader(vertexShader, type:.vertex)
-////        self.fragmentShader = try compileShader(fragmentShader, type:.fragment)
-////
-////        glAttachShader(program, self.vertexShader)
-////        glAttachShader(program, self.fragmentShader)
-////
-////        try link()
-//    }
-
 }

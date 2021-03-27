@@ -6,7 +6,9 @@
 //
 //
 
-import Cocoa
+//import Cocoa
+import Foundation
+import AppKit
 import OpenGL
 
 
@@ -22,7 +24,8 @@ class HomeViewController : NSViewController {
     @IBOutlet weak var fragmentTitle: NSTextField!
     @IBOutlet weak var fragmentScroll: NSScrollView!
     @IBOutlet var fragmentSource: NSTextView!
-    
+
+    private var myContext : OpenGLContext?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +33,7 @@ class HomeViewController : NSViewController {
         //self.view
         setupRes()
         setupConstraints()
-        Self.usingOpenGL()
+        myContext = OpenGLContext()
         test()
     }
 
@@ -45,6 +48,7 @@ class HomeViewController : NSViewController {
         print(" fragmentTitle = \(fragmentTitle.frame)")
         print(" fragmentScroll = \(fragmentScroll.frame)")
         print("  fragmentSource = \(fragmentSource.frame)")
+
     }
 
     @IBAction func clickCompile(_ sender: Any) {
@@ -59,7 +63,6 @@ class HomeViewController : NSViewController {
             let cx = ShaderCode.compile(vi, ti)
             codes.append(cx)
             print("cx = \(cx)")
-            //ShaderProgram.compileShader(code, ti)
         }
         let pg = ShaderProgram.from(texts[0].string, texts[1].string)
         print("pg = \(pg)")
@@ -71,13 +74,13 @@ class HomeViewController : NSViewController {
     }
     }
 
-
     private func setupRes() {
         // https://developer.apple.com/fonts/system-fonts/#preinstalled
         let fnt = NSFont(name: "Courier New", size: 18)
         vertexSource.font = fnt
         fragmentSource.font = fnt
     }
+
     //-- MARK: Layouts
     private func setupConstraints() {
         let tx = [vertexTitle, fragmentTitle]
@@ -94,32 +97,6 @@ class HomeViewController : NSViewController {
             FLLayouts.views(sx, set: .height, to: 150),
         ]
         FLLayouts.activate(root, forConstraint: c)
-    }
-
-
-    private class func usingOpenGL() {
-        // OpenGLContext-OpenGL.swift
-        // https://en.wikipedia.org/wiki/Multiple_buffering
-        let pixelFormatAttributes:[NSOpenGLPixelFormatAttribute] = [
-            //NSOpenGLPixelFormatAttribute(NSOpenGLPFADoubleBuffer),
-            NSOpenGLPixelFormatAttribute(NSOpenGLPFATripleBuffer),
-            NSOpenGLPixelFormatAttribute(NSOpenGLPFAAccelerated), 0,
-            0
-        ]
-
-        guard let pixelFormat = NSOpenGLPixelFormat(attributes:pixelFormatAttributes) else {
-            fatalError("No appropriate pixel format found when creating OpenGL context.")
-        }
-        // TODO: Take into account the sharegroup
-        guard let generatedContext = NSOpenGLContext(format:pixelFormat, share:nil) else {
-            fatalError("Unable to create an OpenGL context. The GPUImage framework requires OpenGL support to work.")
-        }
-        generatedContext.makeCurrentContext()
-
-//        let context = EAGLContext(api: .openGLES3)
-//        if let ctx = context {
-//            EAGLContext.setCurrent(ctx)
-//        }
     }
 
     private func test() {

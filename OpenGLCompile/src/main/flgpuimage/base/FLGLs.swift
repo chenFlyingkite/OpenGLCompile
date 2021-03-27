@@ -2,25 +2,22 @@
 // Created by Eric Chen on 2021/3/22.
 //
 
-//import OpenGLES
-import OpenGL.GL3
 import Foundation
+
+#if os(iOS)
+import OpenGLES
+#elseif os(macOS)
+import OpenGL.GL3
+#endif
 
 public class FLGLs {
     public class func toGLChars(_ s:String) -> [CChar]? {
         return s.cString(using: String.Encoding.utf8)
-//        if let value = s.cString(using: String.Encoding.utf8) {
-//            run(UnsafePointer<GLchar>(value))
-//        } else {
-//            fatalError("Could not convert this string to UTF8: \(self)")
-//        }
     }
-    public class func toGLChars(_ s:String, run:(UnsafePointer<GLchar>) -> ()) {
-        if let value = s.cString(using: String.Encoding.utf8) {
-            run(UnsafePointer<GLchar>(value))
-        } else {
-            fatalError("Could not convert this string to UTF8: \(self)")
-        }
+
+    public class func toString(_ s:UnsafePointer<GLchar>) -> String {
+        //public typealias GLchar = Int8
+        return String(cString: s)
     }
 
     public class func join(_ a: [String], delim d: String = "\n") -> String {
@@ -64,14 +61,3 @@ public func checkGLError() {
 public func glOX(_ b:Int32) -> String {
     return b == GL_TRUE ? "o" : "x"
 }
-
-//
-//extension String {
-//    func toGLChar(_ operation: (UnsafePointer<GLchar>) -> ()) {
-//        if let value = self.cString(using: String.Encoding.utf8) {
-//            operation(UnsafePointer<GLchar>(value))
-//        } else {
-//            fatalError("Could not convert this string to UTF8: \(self)")
-//        }
-//    }
-//}

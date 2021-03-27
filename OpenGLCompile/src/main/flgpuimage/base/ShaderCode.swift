@@ -2,10 +2,13 @@
 // Created by Eric Chen on 2021/3/27.
 //
 
-//import OpenGLES
-import OpenGL
-//import Cocoa
 import Foundation
+
+#if os(iOS)
+import OpenGLES
+#elseif os(macOS)
+import OpenGL.GL3
+#endif
 
 public enum ShaderType : String {
     case vertex

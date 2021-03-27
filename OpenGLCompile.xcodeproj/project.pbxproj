@@ -9,39 +9,41 @@
 /* Begin PBXBuildFile section */
 		432B90A71AD35E24B421199E /* TicTac.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432B90726D4CFE2F1ED75280 /* TicTac.swift */; };
 		432B90EF7BA9458988AF6306 /* FLArrays.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432B9A38DD0984F2C164B06B /* FLArrays.swift */; };
-		432B93C4954224913526D01F /* FLGLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432B9264AE44EFC2BA4E54D5 /* FLGLs.swift */; };
 		432B940E421B457A5DC13D01 /* FLPrimitives.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432B9279B461DBEC32738AC7 /* FLPrimitives.swift */; };
 		432B94602AF467ED8DB38412 /* FLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432B9614D35BB1DC841077D3 /* FLExtensions.swift */; };
 		432B947CDF291B4B4E32DFD6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 432B9F372C53F4930DD6DDBB /* Main.storyboard */; };
+		432B94C9BF3A2CC685EBB8DC /* ShaderCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432B96F65B6A563DEC1DDF55 /* ShaderCode.swift */; };
+		432B95270A393CFE09AEC799 /* ShaderProgram.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432B9B495484B1B0E0761B3A /* ShaderProgram.swift */; };
 		432B95D6ABF88D4B08E6A855 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432B94BF518DAE60B5EF1FEF /* AppDelegate.swift */; };
 		432B9660828D4EEF67E10540 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432B9F87A1CA11C7603EB74B /* HomeViewController.swift */; };
 		432B9790D7354867BD26F011 /* FLCGFloats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432B952A49E0CC61226C7B53 /* FLCGFloats.swift */; };
-		432B97AC8A7EAA58FDCBE04A /* ShaderProgram.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432B91E10A01DFAC218483EA /* ShaderProgram.swift */; };
 		432B981A6EFAA38B219E3757 /* FLLayouts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432B9F2F0149AFB5D3BD38A8 /* FLLayouts.swift */; };
 		432B9A9E0FC80467A4487775 /* FLCollections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432B9F8AF9C66C361B5AB6BE /* FLCollections.swift */; };
+		432B9AA2C5F9D455C241605B /* OpenGLContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432B9F0F2B10A6991B3C28F7 /* OpenGLContext.swift */; };
 		432B9D17875ABAAFA0F9AE91 /* FLStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432B9CE4FF098083EF56F5CA /* FLStrings.swift */; };
+		432B9D71D13229C33890618F /* FLGLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432B99C060BCE977FEE98373 /* FLGLs.swift */; };
 		432B9D78FFA481212FB0ECBA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 432B9953B5CFEF957DCD3E9E /* Assets.xcassets */; };
 		432B9E86AFBD34D9D32095E4 /* FLStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432B970096016E8741E6EF6E /* FLStructs.swift */; };
-		432B9F4BDCF83D7913806890 /* ShaderCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432B901824584F603C8A440E /* ShaderCode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		432B901824584F603C8A440E /* ShaderCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShaderCode.swift; sourceTree = "<group>"; };
 		432B90726D4CFE2F1ED75280 /* TicTac.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicTac.swift; sourceTree = "<group>"; };
-		432B91E10A01DFAC218483EA /* ShaderProgram.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShaderProgram.swift; sourceTree = "<group>"; };
-		432B9264AE44EFC2BA4E54D5 /* FLGLs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FLGLs.swift; sourceTree = "<group>"; };
 		432B9279B461DBEC32738AC7 /* FLPrimitives.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FLPrimitives.swift; sourceTree = "<group>"; };
 		432B94BF518DAE60B5EF1FEF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		432B94F20E0FE19A0ABFB018 /* OpenGLCompile.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OpenGLCompile.entitlements; sourceTree = "<group>"; };
 		432B952A49E0CC61226C7B53 /* FLCGFloats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FLCGFloats.swift; sourceTree = "<group>"; };
 		432B9614D35BB1DC841077D3 /* FLExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FLExtensions.swift; sourceTree = "<group>"; };
+		432B96F65B6A563DEC1DDF55 /* ShaderCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShaderCode.swift; sourceTree = "<group>"; };
 		432B970096016E8741E6EF6E /* FLStructs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FLStructs.swift; sourceTree = "<group>"; };
 		432B993FA497F32C265592B9 /* OpenGLCompile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenGLCompile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		432B9953B5CFEF957DCD3E9E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		432B99C060BCE977FEE98373 /* FLGLs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FLGLs.swift; sourceTree = "<group>"; };
 		432B9A38DD0984F2C164B06B /* FLArrays.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FLArrays.swift; sourceTree = "<group>"; };
+		432B9B495484B1B0E0761B3A /* ShaderProgram.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShaderProgram.swift; sourceTree = "<group>"; };
 		432B9C12F8056F5FBFBBBA20 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		432B9C69ECF9A63441773400 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		432B9CE4FF098083EF56F5CA /* FLStrings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FLStrings.swift; sourceTree = "<group>"; };
+		432B9F0F2B10A6991B3C28F7 /* OpenGLContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenGLContext.swift; sourceTree = "<group>"; };
 		432B9F2F0149AFB5D3BD38A8 /* FLLayouts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FLLayouts.swift; sourceTree = "<group>"; };
 		432B9F87A1CA11C7603EB74B /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		432B9F8AF9C66C361B5AB6BE /* FLCollections.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FLCollections.swift; sourceTree = "<group>"; };
@@ -105,6 +107,17 @@
 			path = OpenGLCompile;
 			sourceTree = "<group>";
 		};
+		432B94FF5154BC2B80EC9C9B /* base */ = {
+			isa = PBXGroup;
+			children = (
+				432B99C060BCE977FEE98373 /* FLGLs.swift */,
+				432B96F65B6A563DEC1DDF55 /* ShaderCode.swift */,
+				432B9B495484B1B0E0761B3A /* ShaderProgram.swift */,
+				432B9F0F2B10A6991B3C28F7 /* OpenGLContext.swift */,
+			);
+			path = base;
+			sourceTree = "<group>";
+		};
 		432B978D3C12A89ADA4BF505 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -164,9 +177,7 @@
 		432B9ECFF6068C1F95EAEF7B /* flgpuimage */ = {
 			isa = PBXGroup;
 			children = (
-				432B9264AE44EFC2BA4E54D5 /* FLGLs.swift */,
-				432B91E10A01DFAC218483EA /* ShaderProgram.swift */,
-				432B901824584F603C8A440E /* ShaderCode.swift */,
+				432B94FF5154BC2B80EC9C9B /* base */,
 			);
 			path = flgpuimage;
 			sourceTree = "<group>";
@@ -236,8 +247,6 @@
 			files = (
 				432B95D6ABF88D4B08E6A855 /* AppDelegate.swift in Sources */,
 				432B9660828D4EEF67E10540 /* HomeViewController.swift in Sources */,
-				432B93C4954224913526D01F /* FLGLs.swift in Sources */,
-				432B97AC8A7EAA58FDCBE04A /* ShaderProgram.swift in Sources */,
 				432B981A6EFAA38B219E3757 /* FLLayouts.swift in Sources */,
 				432B90EF7BA9458988AF6306 /* FLArrays.swift in Sources */,
 				432B9D17875ABAAFA0F9AE91 /* FLStrings.swift in Sources */,
@@ -247,7 +256,10 @@
 				432B940E421B457A5DC13D01 /* FLPrimitives.swift in Sources */,
 				432B9A9E0FC80467A4487775 /* FLCollections.swift in Sources */,
 				432B90A71AD35E24B421199E /* TicTac.swift in Sources */,
-				432B9F4BDCF83D7913806890 /* ShaderCode.swift in Sources */,
+				432B9D71D13229C33890618F /* FLGLs.swift in Sources */,
+				432B94C9BF3A2CC685EBB8DC /* ShaderCode.swift in Sources */,
+				432B95270A393CFE09AEC799 /* ShaderProgram.swift in Sources */,
+				432B9AA2C5F9D455C241605B /* OpenGLContext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
