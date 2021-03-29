@@ -63,6 +63,17 @@ extension String {
             return String(s[e1...])
         }
     }
+
+//    func lastAfter(_ c:Character) -> String {
+//        let s = self
+//        let p = s.lastIndex(of: c)
+//        if let p = p {
+//
+//            s.substring(with: p...count)
+//        } else {
+//            return s
+//        }
+//    }
 }
 
 // Primitive types

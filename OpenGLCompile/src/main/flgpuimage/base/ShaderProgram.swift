@@ -19,8 +19,8 @@ public class ShaderProgram : NSObject {
     private(set) var linkLog = ""
 
     public class func from(_ vertexCode:String, _ fragmentCode:String) -> ShaderProgram {
-        print("vertex = \n\(vertexCode)")
-        print("fragment = \n\(fragmentCode)")
+        wqe("vertex = \n\(vertexCode)")
+        wqe("fragment = \n\(fragmentCode)")
 
         let vid = ShaderCode.compile(vertexCode, .vertex)
         let fid = ShaderCode.compile(fragmentCode, .fragment)
@@ -63,7 +63,7 @@ public class ShaderProgram : NSObject {
             ans.linkLog = ""
         }
 
-        print("program = \(ans)")
+        wqe("program = \(ans)")
         return ans
     }
 
@@ -79,7 +79,7 @@ public class ShaderProgram : NSObject {
     }
 
     deinit {
-        print("deinit")
+        wqe("deinit")
         if let v = self.vertexID {
             glDeleteShader(v.shaderID)
         }

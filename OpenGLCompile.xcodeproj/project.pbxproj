@@ -16,6 +16,7 @@
 		432B95270A393CFE09AEC799 /* ShaderProgram.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432B9B495484B1B0E0761B3A /* ShaderProgram.swift */; };
 		432B95D6ABF88D4B08E6A855 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432B94BF518DAE60B5EF1FEF /* AppDelegate.swift */; };
 		432B9660828D4EEF67E10540 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432B9F87A1CA11C7603EB74B /* HomeViewController.swift */; };
+		432B971332663C9C3EAAD6A5 /* FLLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432B9D405D0DA878B52E2B71 /* FLLog.swift */; };
 		432B9790D7354867BD26F011 /* FLCGFloats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432B952A49E0CC61226C7B53 /* FLCGFloats.swift */; };
 		432B981A6EFAA38B219E3757 /* FLLayouts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432B9F2F0149AFB5D3BD38A8 /* FLLayouts.swift */; };
 		432B9A9E0FC80467A4487775 /* FLCollections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432B9F8AF9C66C361B5AB6BE /* FLCollections.swift */; };
@@ -43,6 +44,7 @@
 		432B9C12F8056F5FBFBBBA20 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		432B9C69ECF9A63441773400 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		432B9CE4FF098083EF56F5CA /* FLStrings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FLStrings.swift; sourceTree = "<group>"; };
+		432B9D405D0DA878B52E2B71 /* FLLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FLLog.swift; sourceTree = "<group>"; };
 		432B9F0F2B10A6991B3C28F7 /* OpenGLContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenGLContext.swift; sourceTree = "<group>"; };
 		432B9F2F0149AFB5D3BD38A8 /* FLLayouts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FLLayouts.swift; sourceTree = "<group>"; };
 		432B9F87A1CA11C7603EB74B /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -60,6 +62,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		432B9038954372813D1CCADA /* util */ = {
+			isa = PBXGroup;
+			children = (
+				432B9D405D0DA878B52E2B71 /* FLLog.swift */,
+			);
+			path = util;
+			sourceTree = "<group>";
+		};
 		432B916ED466764ADFA0C0ED /* main */ = {
 			isa = PBXGroup;
 			children = (
@@ -162,6 +172,7 @@
 				432B93925A1CFB209CD231D8 /* ui */,
 				432B9A53555415350867589B /* lang */,
 				432B92AB90AACC778CD8E616 /* tool */,
+				432B9038954372813D1CCADA /* util */,
 			);
 			path = flymyios;
 			sourceTree = "<group>";
@@ -260,6 +271,7 @@
 				432B94C9BF3A2CC685EBB8DC /* ShaderCode.swift in Sources */,
 				432B95270A393CFE09AEC799 /* ShaderProgram.swift in Sources */,
 				432B9AA2C5F9D455C241605B /* OpenGLContext.swift in Sources */,
+				432B971332663C9C3EAAD6A5 /* FLLog.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

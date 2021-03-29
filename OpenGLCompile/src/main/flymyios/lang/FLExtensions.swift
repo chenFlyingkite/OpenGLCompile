@@ -13,6 +13,14 @@ extension Date {
     }
 }
 
+extension DateFormatter {
+    public class func of(_ f:String) -> DateFormatter {
+        let x = DateFormatter()
+        x.dateFormat = f
+        return x
+    }
+}
+
 extension NSEdgeInsets {
     public init(_ v:CGFloat) {
         self.init(top: v, left: v, bottom: v, right: v)

@@ -20,12 +20,8 @@ public class FLGLs {
         return String(cString: s)
     }
 
-    public class func join(_ a: [String], delim d: String = "\n") -> String {
-        var ans = ""
-        for i in 0..<a.count {
-            ans += a[i] + d
-        }
-        return ans
+    public class func join(_ a:[String]) -> String {
+        return FLStrings.join(a, delim: "\n")
     }
 
 }

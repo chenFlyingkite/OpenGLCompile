@@ -62,8 +62,7 @@ public class ShaderCode : NSObject {
         } else {
             ans.compileLog = ""
         }
-        print("Compile \(type) finished")
-        print("shader = \(ans)")
+        wqe("shader = \(ans)")
         return ans
     }
 
