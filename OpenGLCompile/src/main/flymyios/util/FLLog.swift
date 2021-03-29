@@ -63,7 +63,7 @@ private func printLog(_ s:String = "") {
 
 
 public class FLLog {
-    public class func printRuler (_ n:Int = 0) {
+    public class func printRuler(_ n:Int = 0) {
         var p = ""
         if (n > 0) {
             p = FLStrings.repeats(" ", n)

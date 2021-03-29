@@ -30,6 +30,7 @@ public class ShaderCode : NSObject {
     private(set) var compileLog = ""
 
     public class func compile(_ codes: String, _ type: ShaderType) -> ShaderCode {
+        OpenGLContext.main.makeCurrentContext()
         let ans = ShaderCode()
         ans.type = type
         ans.codes = codes

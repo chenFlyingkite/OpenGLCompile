@@ -26,8 +26,9 @@ class HomeViewController : NSViewController, NSTextViewDelegate {
     @IBOutlet weak var fragmentScroll: NSScrollView!
     @IBOutlet var fragmentSource: NSTextView!
 
+    private let mainCtx = OpenGLContext.start()
+
     // https://developer.apple.com/library/archive/documentation/GraphicsImaging/Conceptual/OpenGL-MacProgGuide/opengl_threading/opengl_threading.html
-    private var myContext : OpenGLContext?
 
     // MARK: Life cycle
     override func viewDidLoad() {
@@ -132,7 +133,7 @@ class HomeViewController : NSViewController, NSTextViewDelegate {
         vertexSource.string = vx
         fragmentSource.string = fx
         // all async = crash
-        self.myContext = OpenGLContext()
+
         self.test()
         DispatchQueue.main.async(execute: {
             //self.test()
@@ -146,7 +147,6 @@ class HomeViewController : NSViewController, NSTextViewDelegate {
     // textDidBeginEditing
     // textDidChange
     var q = DispatchQueue(label: "textRun")
-    var pass = false
     var timSource : DispatchSourceTimer?
 
     private let ready = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { timer in
@@ -282,6 +282,9 @@ class HomeViewController : NSViewController, NSTextViewDelegate {
             "  gl_Position = position;",
             "  textureCoordinate = inputTextureCoordinate.xy;",
             "  textureCoordinate2 = inputTextureCoordinate2.xy;",
+            // type conversion of int & float
+            //"  float x = float(5);",
+            //"  int y = int(5.3);",
             "}",
         ]
         return FLGLs.join(v)
