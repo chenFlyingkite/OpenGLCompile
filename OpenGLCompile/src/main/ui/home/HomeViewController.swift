@@ -89,6 +89,23 @@ class HomeViewController : NSViewController, NSTextViewDelegate {
             wqe("")
             //self.compileProgram()
         })
+        seeToast()
+    }
+
+    private let demo = NSView()
+    private let removeDemo = FLDelayPerform()
+    private func seeToast() {
+        removeDemo.delay = 2
+        removeDemo.run = {
+            wqe("")
+            self.demo.removeFromSuperview()
+        }
+        demo.frame = CGRect(x: 20, y: 50, width: 50, height: 170)
+        let yel = NSColor.ofHex("#ff0")
+        demo.layer?.backgroundColor = yel.cgColor
+        self.view.addSubview(demo)
+        removeDemo.perform()
+        //let x = NSImage(named: "123")
     }
 
     private func compileProgram() {
