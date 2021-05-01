@@ -21,6 +21,7 @@
 		432B981A6EFAA38B219E3757 /* FLLayouts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432B9F2F0149AFB5D3BD38A8 /* FLLayouts.swift */; };
 		432B9A9E0FC80467A4487775 /* FLCollections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432B9F8AF9C66C361B5AB6BE /* FLCollections.swift */; };
 		432B9AA2C5F9D455C241605B /* OpenGLContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432B9F0F2B10A6991B3C28F7 /* OpenGLContext.swift */; };
+		432B9CDFFB8A3377E154D794 /* FLDelayPerform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432B909AC7293CC990FC4392 /* FLDelayPerform.swift */; };
 		432B9D17875ABAAFA0F9AE91 /* FLStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432B9CE4FF098083EF56F5CA /* FLStrings.swift */; };
 		432B9D71D13229C33890618F /* FLGLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432B99C060BCE977FEE98373 /* FLGLs.swift */; };
 		432B9D78FFA481212FB0ECBA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 432B9953B5CFEF957DCD3E9E /* Assets.xcassets */; };
@@ -29,6 +30,7 @@
 
 /* Begin PBXFileReference section */
 		432B90726D4CFE2F1ED75280 /* TicTac.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicTac.swift; sourceTree = "<group>"; };
+		432B909AC7293CC990FC4392 /* FLDelayPerform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FLDelayPerform.swift; sourceTree = "<group>"; };
 		432B9279B461DBEC32738AC7 /* FLPrimitives.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FLPrimitives.swift; sourceTree = "<group>"; };
 		432B94BF518DAE60B5EF1FEF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		432B94F20E0FE19A0ABFB018 /* OpenGLCompile.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OpenGLCompile.entitlements; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 			isa = PBXGroup;
 			children = (
 				432B9D405D0DA878B52E2B71 /* FLLog.swift */,
+				432B909AC7293CC990FC4392 /* FLDelayPerform.swift */,
 			);
 			path = util;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 				432B95270A393CFE09AEC799 /* ShaderProgram.swift in Sources */,
 				432B9AA2C5F9D455C241605B /* OpenGLContext.swift in Sources */,
 				432B971332663C9C3EAAD6A5 /* FLLog.swift in Sources */,
+				432B9CDFFB8A3377E154D794 /* FLDelayPerform.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

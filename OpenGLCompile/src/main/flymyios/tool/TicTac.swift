@@ -106,11 +106,10 @@ public class TicTac : NSObject {
         if (!enable) {
             return -1
         }
-
-        let tac = now()
-        if (tictac.count < 1) {
+        if (tictac.isEmpty) {
             return -1
         }
+        let tac = now()
         let tic = tictac.popLast()!
         return tac - tic
     }
@@ -138,8 +137,10 @@ public class TicTac : NSObject {
             return -1
         }
         let tic = tictac.popLast()!
-        let depth = xn(" ", tictac.count)
-        logTac("\(depth)[\(tac - tic)] : \(msg)")
+        if (log) {
+            let depth = xn(" ", tictac.count)
+            logTac("\(depth)[\(tac - tic)] : \(msg)")
+        }
         return tac - tic
     }
 

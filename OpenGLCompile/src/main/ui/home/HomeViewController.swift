@@ -139,6 +139,14 @@ class HomeViewController : NSViewController, NSTextViewDelegate {
             //self.test()
         })
 
+        // 5 second
+        autoCompile.delay = 5
+        autoCompile.run = {
+            //guard let zelf = self else { return }
+            wqe("autoCompile.go")
+            self.compileProgram()
+            wqe("autoCompile.end")
+        }
     }
 
     // MARK: public protocol NSTextDelegate : NSObjectProtocol {
@@ -205,23 +213,27 @@ class HomeViewController : NSViewController, NSTextViewDelegate {
 //        aut?.invalidate()
 //        aut?.fire()
 
-        let runAt:DispatchTime = .now() + .seconds(5)
-        //DispatchSourceTimer
+    //--
+        if (false) {
+            let runAt:DispatchTime = .now() + .seconds(5)
+            //DispatchSourceTimer
 
-        timSource?.cancel()
-        let tim = DispatchSource.makeTimerSource(queue: q)
-        tim.setEventHandler(handler: {
-            let no = self.timSource?.isCancelled ?? true
-            wqe("cancel = \(no), \(self.timSource)")
-            if (no) {
-            } else {
-                self.run()
-            }
-        })
-        timSource = tim
-        tim.schedule(deadline: runAt)
-        tim.resume()
-        //timSource?.cancel()
+            timSource?.cancel()
+            let tim = DispatchSource.makeTimerSource(queue: q)
+            tim.setEventHandler(handler: {
+                let no = self.timSource?.isCancelled ?? true
+                wqe("cancel = \(no), \(self.timSource)")
+                if (no) {
+                } else {
+                    self.run()
+                }
+            })
+            timSource = tim
+            tim.schedule(deadline: runAt)
+            tim.resume()
+        }
+
+    //--
 //        q.asyncAfter(deadline: <#T##DispatchTime##Dispatch.DispatchTime#>, execute: {
 //
 //        })
@@ -229,7 +241,10 @@ class HomeViewController : NSViewController, NSTextViewDelegate {
 //        let date = Date().addingTimeInterval(5)
 //        let timer = Timer(fireAt: date, interval: 0, target: self, selector: #selector(runCode), userInfo: nil, repeats: false)
 //        RunLoop.main.add(timer, forMode: .common)
+        autoCompile.perform()
     }
+
+    private var autoCompile = FLDelayPerform()
 
 
     //-- MARK: Layouts
