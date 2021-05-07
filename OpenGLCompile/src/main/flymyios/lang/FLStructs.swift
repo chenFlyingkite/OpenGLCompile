@@ -4,22 +4,14 @@
 //
 
 import Foundation
+#if os(iOS)
+import UIKit
+#elseif os(macOS)
+import AppKit
+#endif
 
 //class FLStructs {
 //}
-#if false
-
-extension UIEdgeInsets {
-    public init(_ v:CGFloat) {
-        // fails...
-        //top = left = right = bottom = v
-        self.init(top: v, left: v, bottom: v, right: v)
-    }
-
-    public init(x:CGFloat, y:CGFloat) {
-        self.init(top: y, left: x, bottom: y, right: x)
-    }
-}
 
 //Geometry
 extension CGRect {
@@ -39,6 +31,13 @@ extension CGRect {
         get {return String(format: "[%.0f,%.0f - %.0f,%.0f]", left, top, right, bottom) }
     }
 
+    public init(l: Double, t:Double, r:Double, b:Double) {
+        self.init(x: l, y: t, width: r - l, height: b - t)
+    }
+    public init(l: Int, t:Int, r:Int, b:Int) {
+        self.init(x: l, y: t, width: r - l, height: b - t)
+    }
+
     public static let sortTopLeft: (CGRect, CGRect) -> Bool = { r1, r2 in
         // sort by top left
         let L1 = r1.left, t1 = r1.top
@@ -53,10 +52,23 @@ extension CGRect {
         // same
         return true
     }
+
+
+    public func extend(_ m:NSEdgeInsets) -> CGRect {
+        let z = CGRect.init(l: m.left.lf(), t: m.top.lf(), r: m.right.lf(), b: m.bottom.lf())
+        return self.extend(z)
+    }
+    public func extend(_ m:CGRect) -> CGRect {
+        let l = self.left - m.left
+        let t = self.top - m.top
+        let r = self.right + m.right
+        let b = self.bottom + m.bottom
+        return Self.init(l: l, t: t, r: r, b: b)
+    }
 }
 
 //Geometry
-extension CGPoint  {
+extension CGPoint {
     public func length(_ p:CGPoint = .zero) -> CGFloat {
         let q = vectorTo(p)
         return hypot(q.x, q.y)
@@ -72,8 +84,9 @@ extension CGPoint  {
     // atan2(y, x) = arc tangent of (y/x), [-pi ~ +pi]
     public func degree() -> Double {
         // Swift fail to perform auto casting to double...., so we uses verbose Double()
-        return radToDeg(Double(atan2(y, x)))
+        return FLMath.radToDeg(Double(atan2(y, x)))
     }
+
 
     public func offset(_ p:CGPoint) -> CGPoint {
         return CGPoint.init(x: x + p.x, y: y + p.y)
@@ -91,13 +104,13 @@ extension CGPoint  {
         return String.init(format:"(%7.2f, %7.2f)", self.x, self.y)
     }
 
-    public func toPointF() -> PointF {
-        let p = PointF.init()
-        let q = self
-        p.x = Double(q.x)
-        p.y = Double(q.y)
-        return p
-    }
+//    public func toPointF() -> PointF {
+//        let p = PointF.init()
+//        let q = self
+//        p.x = Double(q.x)
+//        p.y = Double(q.y)
+//        return p
+//    }
 }
 
 //Geometry
@@ -107,5 +120,6 @@ extension CGSize {
     }
 }
 
-#else
-#endif
+extension CGFloat {
+    func lf() -> Double { return Double(self) }
+}

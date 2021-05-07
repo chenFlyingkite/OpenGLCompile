@@ -84,15 +84,16 @@ class HomeViewController : NSViewController, NSTextViewDelegate {
 
 
     @IBAction func clickCompile(_ sender: Any) {
-        self.compileProgram()
-        q.async(execute: {
-            wqe("")
-            //self.compileProgram()
-        })
+//        self.compileProgram()
+//        q.async(execute: {
+//            wqe("")
+//            //self.compileProgram()
+//        })
         seeToast()
     }
 
-    private let demo = NSView()
+    //private let demo = NSView()
+    private let demo = FLToast()
     private let removeDemo = FLDelayPerform()
     private func seeToast() {
         removeDemo.delay = 2
@@ -100,12 +101,16 @@ class HomeViewController : NSViewController, NSTextViewDelegate {
             wqe("")
             self.demo.removeFromSuperview()
         }
-        demo.frame = CGRect(x: 20, y: 50, width: 50, height: 170)
+        let r = FLStrings.measureWrapContent(demo.text, atMostWidth: 50)
+        let fr = r.offsetBy(dx: 10, dy: 30).extend(demo.margin)
+        wqe("fr = \(fr)")
+        //demo.frame = CGRect(x: 20, y: 100, width: 250, height: 170)
+        demo.frame = fr
+
         let yel = NSColor.ofHex("#ff0")
         demo.layer?.backgroundColor = yel.cgColor
         self.view.addSubview(demo)
         removeDemo.perform()
-        //let x = NSImage(named: "123")
     }
 
     private func compileProgram() {

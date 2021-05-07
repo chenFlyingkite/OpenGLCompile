@@ -3,8 +3,25 @@
 //
 
 import Foundation
+#if os(iOS)
+import UIKit
+#elseif os(macOS)
+import AppKit
+#endif
 
 public class FLStrings {
+    #if os(iOS)
+    public typealias Font = UIFont
+    public typealias Text = UILabel
+//    public typealias StackView = UIStackView
+//    public typealias EdgeInsets = UIEdgeInsets
+    #elseif os(macOS)
+    public typealias Font = NSFont
+    public typealias Text = NSText
+//    public typealias StackView = NSStackView
+//    public typealias EdgeInsets = NSEdgeInsets
+    #endif
+
     public static let fmt_yyyyMMddHHmmssSSS = DateFormatter.of("yyyy-MM-dd HH:mm:ss.SSS")
     public static let fmt_MMddHHmmssSSS = DateFormatter.of("MM-dd HH:mm:ss.SSS")
 
@@ -123,5 +140,89 @@ public class FLStrings {
 //        + (NSString*) joinAsUrlParameter:(NSDictionary*)map {
 //    return [FLStringKit join:map pre:@"" delimKV:@"=" delimEntry:@"&" post:@""];
 //}
+
+//    class func peekStringSize(_ key:String) {
+//        let a = ["zh-Hans", "zh-Hant", "ja", "ko",
+//                 "de", "en", "es", "fr", "it", "pt-BR", "ru",
+//                 "Base"]
+//        let n = a.count
+//        var i = 0
+//        var k = key
+//        while (i < n) {
+//            let ai = a[i]
+//            let p = Bundle.main.path(forResource: ai, ofType: "lproj") ?? ""
+//            let b = Bundle(path: p)
+//            let s = b?.localizedString(forKey: k, value: "", table: nil) ?? ""
+//            let w = CGSize(width: 100, height: .max)
+//            let z = NSString(string: s).boundingRect(with: w, options: .usesLineFragmentOrigin, attributes: nil, context: nil)
+//            let q = Self.measureSize(s, UIFont.systemFont(ofSize: 19), width: 100)
+//            wqe("la = \(ai), s(\(s.count)) = \(s), w = \(w), z = \(z), q = \(q), p = \(p)")
+//            i++
+//        }
+//    }
+
+//    class func measureWrapHeight(_ t:UILabel) -> CGRect {
+//        return Self.measureWrapContent(t, atMostWidth: t.frame.width.lf())
+//    }
+//
+//    class func measureWrapWidth(_ t:UILabel) -> CGRect {
+//        return Self.measureWrapContent(t, atMostHeight: t.frame.height.lf())
+//    }
+
+    class func measureWrapContent(_ t:Text, atMostWidth w: Double) -> CGRect {
+        return Self.measureSize(Self.getText(t), t.font, width: w)
+    }
+
+    class func measureWrapContent(_ t:Text, atMostHeight h: Double) -> CGRect {
+        return Self.measureSize(Self.getText(t), t.font, height: h)
+    }
+
+    class func getText(_ t:Text) -> String {
+        #if os(iOS)
+        return t.text ?? ""
+        #elseif os(macOS)
+        return t.string
+        #else
+        return ""
+        #endif
+    }
+
+    // return the rect that measured as compact bounding rect for string in font
+    // bottom + 1 is to make additional space for it, too compact may make text still truncated
+    class func measureSize(_ str: String, _ font:Font?, width: Double) -> CGRect {
+        return Self.measureSize(str, font, width, true)
+    }
+
+    // right + 1 is to make additional space for it, too compact may make text still truncated
+    class func measureSize(_ str: String, _ font:Font?, height: Double) -> CGRect {
+        return Self.measureSize(str, font, height, false)
+    }
+
+    private class func measureSize(_ str: String, _ font:Font?, _ value: Double, _ isW:Bool) -> CGRect {
+        var attr : [NSAttributedString.Key : Any] = [:]
+        if let f = font {
+            attr[.font] = f
+        }
+
+        var z = CGSize(width: value, height: value)
+        if (isW) {
+            z = CGSize(width: value, height: 1.0 * Int.max)
+        } else {
+            z = CGSize(width: 1.0 * Int.max, height: value)
+        }
+
+        let r = NSString(string: str).boundingRect(with: z,
+                options: .usesLineFragmentOrigin,
+                attributes: attr,
+                context: nil)
+
+        var ans = CGRect.zero
+        if (isW) {
+            ans = CGRect(l: r.left, t: r.top, r: r.right, b: r.bottom + 1)
+        } else {
+            ans = CGRect(l: r.left, t: r.top, r: r.right + 1, b: r.bottom)
+        }
+        return ans
+    }
 
 }

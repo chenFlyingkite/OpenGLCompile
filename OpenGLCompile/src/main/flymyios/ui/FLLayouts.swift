@@ -304,6 +304,12 @@ public class FLLayouts {
         return ans
     }
 
+    // MARK : two property alignment
+    public class func view(_ v1:View, align attr:NSLayoutAttribute, to v2:View, of attr2:NSLayoutAttribute, offset c:Double = 0) -> NSLayoutConstraint {
+        return NSLayoutConstraint.init(item: v1, attribute: attr, relatedBy: .equal,
+                toItem: v2, attribute: attr2, multiplier: 1, constant: CGFloat(c))
+    }
+
     public class func view(_ v1:View, align attr:NSLayoutAttribute, to v2:View, offset c:Double = 0) -> NSLayoutConstraint {
         return NSLayoutConstraint.init(item: v1, attribute: attr, relatedBy: .equal,
                 toItem: v2, attribute: attr, multiplier: 1, constant: CGFloat(c))

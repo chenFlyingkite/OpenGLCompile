@@ -20,8 +20,10 @@
 		432B971332663C9C3EAAD6A5 /* FLLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432B9D405D0DA878B52E2B71 /* FLLog.swift */; };
 		432B9790D7354867BD26F011 /* FLCGFloats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432B952A49E0CC61226C7B53 /* FLCGFloats.swift */; };
 		432B981A6EFAA38B219E3757 /* FLLayouts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432B9F2F0149AFB5D3BD38A8 /* FLLayouts.swift */; };
+		432B98469F89CA5497F972C4 /* FLMath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432B9B05B98C7AA8CF87067C /* FLMath.swift */; };
 		432B9A9E0FC80467A4487775 /* FLCollections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432B9F8AF9C66C361B5AB6BE /* FLCollections.swift */; };
 		432B9AA2C5F9D455C241605B /* OpenGLContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432B9F0F2B10A6991B3C28F7 /* OpenGLContext.swift */; };
+		432B9B6D1BD11F1A8244B415 /* FLToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432B9F9866004C2A882F2568 /* FLToast.swift */; };
 		432B9CDFFB8A3377E154D794 /* FLDelayPerform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432B909AC7293CC990FC4392 /* FLDelayPerform.swift */; };
 		432B9D17875ABAAFA0F9AE91 /* FLStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432B9CE4FF098083EF56F5CA /* FLStrings.swift */; };
 		432B9D71D13229C33890618F /* FLGLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432B99C060BCE977FEE98373 /* FLGLs.swift */; };
@@ -44,6 +46,7 @@
 		432B9953B5CFEF957DCD3E9E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		432B99C060BCE977FEE98373 /* FLGLs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FLGLs.swift; sourceTree = "<group>"; };
 		432B9A38DD0984F2C164B06B /* FLArrays.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FLArrays.swift; sourceTree = "<group>"; };
+		432B9B05B98C7AA8CF87067C /* FLMath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FLMath.swift; sourceTree = "<group>"; };
 		432B9B495484B1B0E0761B3A /* ShaderProgram.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShaderProgram.swift; sourceTree = "<group>"; };
 		432B9C12F8056F5FBFBBBA20 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		432B9C69ECF9A63441773400 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
@@ -53,6 +56,7 @@
 		432B9F2F0149AFB5D3BD38A8 /* FLLayouts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FLLayouts.swift; sourceTree = "<group>"; };
 		432B9F87A1CA11C7603EB74B /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		432B9F8AF9C66C361B5AB6BE /* FLCollections.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FLCollections.swift; sourceTree = "<group>"; };
+		432B9F9866004C2A882F2568 /* FLToast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FLToast.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +75,7 @@
 			children = (
 				432B9D405D0DA878B52E2B71 /* FLLog.swift */,
 				432B909AC7293CC990FC4392 /* FLDelayPerform.swift */,
+				432B9F9866004C2A882F2568 /* FLToast.swift */,
 			);
 			path = util;
 			sourceTree = "<group>";
@@ -160,6 +165,7 @@
 				432B9279B461DBEC32738AC7 /* FLPrimitives.swift */,
 				432B9F8AF9C66C361B5AB6BE /* FLCollections.swift */,
 				432B9636CCE558555413D94D /* FLColors.swift */,
+				432B9B05B98C7AA8CF87067C /* FLMath.swift */,
 			);
 			path = lang;
 			sourceTree = "<group>";
@@ -280,6 +286,8 @@
 				432B971332663C9C3EAAD6A5 /* FLLog.swift in Sources */,
 				432B9CDFFB8A3377E154D794 /* FLDelayPerform.swift in Sources */,
 				432B921CD447121E298C52A9 /* FLColors.swift in Sources */,
+				432B9B6D1BD11F1A8244B415 /* FLToast.swift in Sources */,
+				432B98469F89CA5497F972C4 /* FLMath.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -16,7 +16,9 @@ import Foundation
 
  */
 class FLDelayPerform : NSObject {
+    // the action to be performed
     var run: (()->())? = nil
+    // time in seconds, e.g. for delay 1200ms, this need to fill in 1.2
     var delay :TimeInterval = 0
     // used for recognizing time
     private let token = FLStrings.now()
@@ -32,6 +34,7 @@ class FLDelayPerform : NSObject {
         let method = #selector(runMe)
         let key = token
 
+        // core
         if (sent) {
             NSObject.cancelPreviousPerformRequests(withTarget: target, selector: method, object: key)
         }
